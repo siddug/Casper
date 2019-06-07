@@ -1,0 +1,15 @@
+<aside class="blog-sidebar">
+{{#get "posts" limit="15" filter="tags:[{{post.tags}}]+id:-{{post.id}}" include="tags" as |related|}}
+
+<section class="related-posts">
+  <h3>Related Articles</h3>
+  <ol>
+    {{#foreach related}}
+    <li><a href="{{url}}">{{title}}</a></li>
+    {{/foreach}}
+  </ol>
+</section>
+{{else}}
+<p>No</p>
+{{/get}}
+</aside>
